@@ -1,6 +1,7 @@
 # FILE
 
 LATEX_FILE 	= main.tex
+SLIDES_FILE 	= slides.tex
 LATEX_AUX 	=  main.aux
 
 
@@ -11,6 +12,8 @@ BIB	= bibtex
 REMOVE  = rm
 
 
+slides: clean
+	$(CC) --shell-escape $(SLIDES_FILE)
 
 all: biblio
 	$(CC) --shell-escape $(LATEX_FILE) ufbathesis.cls
