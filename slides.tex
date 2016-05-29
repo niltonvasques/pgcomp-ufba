@@ -1,5 +1,5 @@
 %!TeX spellcheck = pt_BR
-\documentclass{beamer}
+\documentclass[brazil]{beamer}
 %\usepackage[timeinterval=1,font=Helv]{tdclock}
 \usetheme{Frankfurt}
 \useoutertheme[subsection=false,footline=authorinstitute]{miniframes}
@@ -9,7 +9,7 @@
 %\usepackage{ragged2e}
 %\usepackage{etoolbox}
 \usepackage{hyphenat}
-\usepackage[portuguese]{babel}
+\usepackage{babel}
 %\hyphenation{mate-mática recu-perar}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -25,6 +25,12 @@
 %\usetheme{Darmstadt}
 %\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
 %\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
 
 \AtBeginSection[]
 {
@@ -73,11 +79,54 @@ flexível de documentos}
 
 \begin{frame}{Introdução}
   \begin{itemize}
-    \item O avanço da tecnologia tem proporcionado um \alert{aumento gigantesco} na quantidade de
-  \alert{dados armazenados}.
+    \item<1 -> O avanço da tecnologia tem proporcionado um \alert{aumento gigantesco} na quantidade
+      de \alert{dados armazenados}.
+    \item<2 -> A rede social Facebook produz mais de \alert{25 $terabytes$/dia} \cite{Havens2012}.
+    \item<3 -> Governos e corporações também produzem milhares de \alert{documentos} todos os dias,
+      tais como relatórios, formulários pesquisas de opiniões e etc.
+    \item<4 -> \citeonline{Muggleton2006} ressalta que este cenário está além dos limites humanos
+      para o uso e compreensão.
+  \end{itemize}
+\end{frame}
 
-    \item A critério de exemplo, a popular plataforma de rede social Facebook, produz diariamente
-mais de \alert{25 $terabytes$} de informação \cite{Havens2012}.
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item<1 -> \citeonline{Kobayashi2008} enfatizam que instituições estão sobrecarregadas com
+      o processamento desse montante de dados. 
+    \item<2 -> Os dados por sua vez, estão armazenados em diversos tipos e formatos, sendo muitas
+      vezes \alert{não estruturados}.
+  \end{itemize}
+  \begin{examples}<3 ->
+    documentos de textos, planilhas, áudios, imagens, vídeos e documentos HTML.
+  \end{examples}
+\end{frame}
+
+\begin{frame}{Introdução}
+  As seguintes áreas vem explorando e propondo técnicas para otimizar esse processo: 
+  \begin{itemize}
+    \item Mineração de Dados (MD) 
+    \item Aprendizado de Máquina  
+    \item Recuperação da Informação (RI)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item Dados estruturados já possuem mecanismos eficientes de armazenamento e recuperação.
+    \item \alert{Documentos textuais} são recuperados através de Sistemas de Recuperação da
+      Informação (SRI), por conta da \alert{ausência de estruturas}. 
+  \end{itemize}
+  \begin{examples}
+    Duckduckgo, Jus Brasil, IEEExplore, ACM, Google e etc 
+  \end{examples}
+\end{frame}
+
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item Demanda crescente para desenvolvimento e aprimoramento de métodos e algoritmos que possam
+  processar e extrair padrões dos dados. 
+    \item A extração de padrões de documentos textuais é o principal objetivo da Mineração de Textos
+      (MT).
   \end{itemize}
 \end{frame}
 
