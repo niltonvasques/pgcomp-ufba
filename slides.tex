@@ -139,11 +139,94 @@ flexível de documentos}
 
 \begin{frame}{Introdução}
   \begin{itemize}
-    \item Demanda crescente para desenvolvimento e aprimoramento de métodos e algoritmos que possam
+    \item Demanda crescente para desenvolvimento e aprimoramento de métodos que possam
       processar e \alert{extrair padrões} de \alert{dados textuais}. 
     \item A extração de padrões de documentos textuais é o principal objetivo da Mineração de Textos
       (MT).
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Introdução}
+  Vários desafios estão presentes na processo de extração de padrões de documentos textuais, entre
+  eles destaca-se:
+  \begin{itemize}
+    \item Não estruturados.
+    \item Naturalmente \alert{imprecisos} e \alert{incertos}. 
+    \item Abordam um ou mais temas. 
+    \item \alert{Alta dimensionalidade}.
+    \item Dados \alert{esparsos}.
+  \end{itemize}
+  \begin{examples}
+    Uma coleção de documentos pode conter 100.000 palavras, enquanto um documento pode conter apenas
+    algumas centenas \cite{Aggarwal2012}.
+  \end{examples}
+\end{frame}
+
+\begin{frame}{Introdução}
+  \begin{block}{Definição}
+    A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
+    \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
+    fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
+    informação através de um Sistema de Recuperação de Informação (SRI)
+  \end{block}
+\end{frame}
+
+\begin{frame}{Introdução}
+  O agrupamento é muito importante neste processo e possui uma série de desafios:
+  \begin{itemize}
+    \item Agrupar de acordo com a similaridade. 
+    \item \textbf{Grupos com significado relevante}.
+    \item Escalável para grandes coleções ({\it Big Data\/}).
+    \item Baixo custo computacional.
+    \item Estimar os parâmetros dos algoritmos.
+    \item \textbf{Considerar a imprecisão e a incerteza}.
+    \item \textbf{Reduzir a influência de \alert{documentos ruidosos}}. 
+  \end{itemize} 
+  \begin{block}{Citação}
+    {\it [...] não é esperado que um único método de agrupamento atenda
+    todas as exigências para todos os conjuntos de dados [...] \cite{Steinbach2004}\/}.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Introdução}
+  Existem diversos métodos de agrupamento na literatura, os quais destacam-se:
+  \begin{itemize}
+    \item {\it Fuzzy C-Means\/} (FCM) - Graus de pertinência (Problemas com ruídos). 
+    \item {\it Possibilistic C-Means\/} (PCM) - Graus de tipicidade (Pode gerar grupos
+      coincidentes). 
+    \item {\it Possibilistic Fuzzy C-Means\/} (PFCM) - Graus de pertinência e tipicidade (Híbrido). 
+  \end{itemize} 
+
+\end{frame}
+
+\begin{frame}{Introdução}
+  Foi então formulada a seguinte hipótese: 
+  \begin{block}{Hipótese}
+    A utilização de uma estratégia \alert{híbrida} de agrupamento e extração de descritores, entre
+    os graus de pertinência e tipicidade providos pelo método de agrupamento PFCM, permitem o
+    aumento da robustez e resiliência contra \alert{ruídos} na \alert{organização flexível de
+    documentos}, aumentando assim a relevância dos grupos obtidos.
+  \end{block}
+
+  Para validar a hipótese definiu-se o como objetivo desta monografia:
+
+  \begin{block}{Objetivo}
+    Conduzir uma investigação em torno dos métodos de agrupamento \textbf{FCM, PCM e PFCM}, para
+    compreender e interpretar corretamente as peculiaridades de se extrair descritores a partir de um
+    \textbf{agrupamento híbrido}.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Introdução}
+  A partir das investigações conduzidas descobriu-se que os \alert{graus de tipicidade}
+  \alert{afetam} a qualidade dos descritores dos grupos. 
+
+  Essa descoberta motivou a proposição dos métodos de extração de descritores:
+
+  \begin{itemize}
+    \item \textbf{Possibilistic Description Comes Last} (PDCL)
+    \item \textbf{Mixed - Possibilistic Fuzzy Description Comes Last} (Mixed-PFDCL) (Híbrido)
+  \end{itemize} 
 \end{frame}
 
 \section{Fundamentação Teórica}
