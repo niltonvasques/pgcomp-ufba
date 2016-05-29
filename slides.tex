@@ -2,7 +2,8 @@
 \documentclass[brazil]{beamer}
 %\usepackage[timeinterval=1,font=Helv]{tdclock}
 \usetheme{Frankfurt}
-\useoutertheme[subsection=false,footline=authorinstitute]{miniframes}
+\useoutertheme[subsection=false,footline=authortitle]{miniframes}
+%\useoutertheme{shadow}
 
 
 %\usepackage{beamerthemesplit}
@@ -25,11 +26,25 @@
 %\usetheme{Darmstadt}
 %\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
 %\setbeamertemplate{navigation symbols}{}
-\addtobeamertemplate{navigation symbols}{}{%
-    \usebeamerfont{footline}%
-    \usebeamercolor[fg]{footline}%
-    \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
+%\addtobeamertemplate{navigation symbols}{}{%
+%    \usebeamerfont{footline}%
+%    \usebeamercolor[fg]{footline}%
+%    \hspace{1em}%
+%    \insertframenumber/\inserttotalframenumber
+%}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent=20}
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill%
+  \insertframenumber/\inserttotalframenumber}
+
+\setbeamertemplate{headline}
+ {%
+  \begin{beamercolorbox}{section in head/foot}
+  \insertsectionnavigationhorizontal{\textwidth}{}{}
+  \end{beamercolorbox}%
 }
 
 \AtBeginSection[]
@@ -41,7 +56,8 @@
 }
 
 
-\title[homes.dcc.ufba/\~\/niltonvasques/tcc-slides.pdf]{Uma abordagem híbrida para organização
+\title[Uma abordagem híbrida para organização
+flexível de documentos]{Uma abordagem híbrida para organização
 flexível de documentos}
 \subtitle{Apresentação de Monografia}
 \author[Nilton Vasques Carvalho Junior]{
@@ -93,11 +109,22 @@ flexível de documentos}
   \begin{itemize}
     \item<1 -> \citeonline{Kobayashi2008} enfatizam que instituições estão sobrecarregadas com
       o processamento desse montante de dados. 
-    \item<2 -> Os dados por sua vez, estão armazenados em diversos tipos e formatos, sendo muitas
-      vezes \alert{não estruturados}.
+    \item<2 -> Os dados possuem diversos tipos e formatos, sendo armazenados de forma estruturada ou
+      \alert{não estruturada}.
   \end{itemize}
   \begin{examples}<3 ->
     documentos de textos, planilhas, áudios, imagens, vídeos e documentos HTML.
+  \end{examples}
+\end{frame}
+
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item<1 -> Dados estruturados já possuem mecanismos eficientes de armazenamento e recuperação.
+    \item<2 -> \alert{Documentos textuais} são recuperados através de Sistemas de Recuperação da
+      Informação (SRI), por conta da \alert{ausência de estruturas}. 
+  \end{itemize}
+  \begin{examples}<2 ->
+    Duckduckgo, Jus Brasil, IEEExplore, ACM, Google e etc 
   \end{examples}
 \end{frame}
 
@@ -112,19 +139,8 @@ flexível de documentos}
 
 \begin{frame}{Introdução}
   \begin{itemize}
-    \item Dados estruturados já possuem mecanismos eficientes de armazenamento e recuperação.
-    \item \alert{Documentos textuais} são recuperados através de Sistemas de Recuperação da
-      Informação (SRI), por conta da \alert{ausência de estruturas}. 
-  \end{itemize}
-  \begin{examples}
-    Duckduckgo, Jus Brasil, IEEExplore, ACM, Google e etc 
-  \end{examples}
-\end{frame}
-
-\begin{frame}{Introdução}
-  \begin{itemize}
     \item Demanda crescente para desenvolvimento e aprimoramento de métodos e algoritmos que possam
-  processar e extrair padrões dos dados. 
+      processar e \alert{extrair padrões} de \alert{dados textuais}. 
     \item A extração de padrões de documentos textuais é o principal objetivo da Mineração de Textos
       (MT).
   \end{itemize}
