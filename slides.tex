@@ -1,23 +1,30 @@
 %!TeX spellcheck = pt_BR
 \documentclass{beamer}
 %\usepackage[timeinterval=1,font=Helv]{tdclock}
+\usetheme{Frankfurt}
+\useoutertheme[subsection=false,footline=authorinstitute]{miniframes}
 
 
-\usepackage{beamerthemesplit}
-\usepackage{ragged2e}
-\usepackage{etoolbox}
+%\usepackage{beamerthemesplit}
+%\usepackage{ragged2e}
+%\usepackage{etoolbox}
 \usepackage{hyphenat}
 \usepackage[portuguese]{babel}
-\hyphenation{mate-mática recu-perar}
+%\hyphenation{mate-mática recu-perar}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[utf8x]{inputenc}
 \usepackage[figurename=Imagem]{caption}
+\usepackage[alf,abnt-etal-cite=2]{abntex2cite}
+%\usepackage{remreset}
+%\makeatletter
+%\@removefromreset{subsection}{section}
+%\makeatother
+%\setcounter{subsection}{1}
 
-\usetheme{Frankfurt}
 %\usetheme{Darmstadt}
-\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
-\setbeamertemplate{navigation symbols}{}
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+%\setbeamertemplate{navigation symbols}{}
 
 \AtBeginSection[]
 {
@@ -45,7 +52,7 @@ flexível de documentos}
 \date{2 de Junho de 2016}
 
 
-\setbeamertemplate{headline}{}
+%\setbeamertemplate{headline}{}
 
 %\setbeamertemplate{background}{\hspace{.5em}\textcolor{red}{\tiny\bfseries\tdtime}}
 
@@ -53,7 +60,7 @@ flexível de documentos}
 \begin{frame}
   \maketitle
 
- % \initclock
+  %\initclock
 
 \end{frame}
 
@@ -64,9 +71,14 @@ flexível de documentos}
 
 \section{Introdução}
 
+\begin{frame}{Introdução}
+  \begin{itemize}
+    \item O avanço da tecnologia tem proporcionado um \alert{aumento gigantesco} na quantidade de
+  \alert{dados armazenados}.
 
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+    \item A critério de exemplo, a popular plataforma de rede social Facebook, produz diariamente
+mais de \alert{25 $terabytes$} de informação \cite{Havens2012}.
+  \end{itemize}
 \end{frame}
 
 \section{Fundamentação Teórica}
@@ -199,5 +211,7 @@ flexível de documentos}
 %    \end{itemize}
 %  \end{frame}
 
+\bibliographystyle{abntex2-alf}
+\bibliography{biblio}
 
 \end{document}

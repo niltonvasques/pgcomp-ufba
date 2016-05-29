@@ -3,6 +3,7 @@
 LATEX_FILE 	= main.tex
 SLIDES_FILE 	= slides.tex
 LATEX_AUX 	=  main.aux
+SLIDES_AUX 	=  slides.aux
 
 
 # TOOLCHAINS
@@ -13,6 +14,9 @@ REMOVE  = rm
 
 
 slides: clean
+	$(CC) --shell-escape $(SLIDES_FILE)
+	$(BIB) $(SLIDES_AUX)
+	$(CC) --shell-escape $(SLIDES_FILE)
 	$(CC) --shell-escape $(SLIDES_FILE)
 
 all: biblio
@@ -25,5 +29,6 @@ pdflatex:
 biblio: clean pdflatex
 	$(BIB) $(LATEX_AUX)
 	$(CC) --shell-escape $(LATEX_FILE)
+
 clean:
 	$(REMOVE) *.aux *.bbl *.blg *.out *.log -f
