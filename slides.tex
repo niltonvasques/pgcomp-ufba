@@ -307,8 +307,8 @@ flexível de documentos}
     \column{0.5\textwidth}
     \begin{itemize}
       \item Graus de pertinência. 
-      \item Problema com ruídos. 
       \item \alert{Restrição probabilística}.
+      \item Problema com ruídos. 
     \end{itemize} 
     \begin{table}[!htp]
       \centering
@@ -338,8 +338,8 @@ flexível de documentos}
     \column{0.5\textwidth}
     \begin{itemize}
       \item Graus de tipicidade. 
-      \item Problema dos grupos coincidentes. 
       \item \alert{Remoção da restrição probabilística}.
+      \item Problema dos grupos coincidentes. 
     \end{itemize} 
     \begin{table}[!htp]
       \centering
@@ -357,8 +357,8 @@ flexível de documentos}
 
     \column{0.5\textwidth}
     \begin{figure}[!htp] \centering
-      \includegraphics[width=1.0\columnwidth]{assets/fcm_problem.pdf} 
-      \caption{Problema dos ruídos} 
+      \includegraphics[width=1.0\columnwidth]{assets/clusters_pcm_problem.pdf} 
+      \caption{Grupos coincidentes} 
       \label{fig:fcm_problem} 
     \end{figure}
   \end{columns}
@@ -387,7 +387,7 @@ flexível de documentos}
         \hline
         & {\bf$grupo_1$} & {\bf $grupo_2$} & {\bf total} \\
         \hline
-        $doc_1$ & 0,50 & 0,5 & 1,0 \\
+        $doc_1$ & 0,5 & 0,5 & 1,0 \\
         \hline
         $doc_2$ & 0,5 & 0,5 & 1,0 \\
         \hline
@@ -411,8 +411,30 @@ flexível de documentos}
 \end{frame}
 
 \subsection{Extração de descritores}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+
+\begin{frame}{Extração de descritores}
+  \begin{itemize}
+    \item<1 -> Atribuir significados aos grupos. 
+    \item<2 -> Manual ou \textbf{Automatizada}. 
+    \item<3 -> Abordagens de conhecimento interno e externo.
+    \item<4 -> Durante o agrupamento ({\it Description Comes First\/} - DCF) 
+    \item<4 -> \textbf{Após o agrupamento ({\it Description Comes Last\/} - DCL)}.
+    \item<5 -> Método {\it Soft Organization - Fuzzy Description Comes Last\/} (SoftO-FDCL)
+      \cite{Nogueira2013}.
+  \end{itemize} 
+  \begin{figure}[!htp] 
+    \centering 
+    \includegraphics[width=0.4\columnwidth]{assets/descriptors.pdf}
+    \caption{Descritores} 
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Organização Flexível de Documentos}
+  \begin{figure}[!htp] 
+    \centering 
+    \includegraphics[width=1.0\columnwidth]{assets/process.pdf}
+    \caption{Organização flexível de documentos.} 
+  \end{figure}
 \end{frame}
 
 \section{Trabalhos relacionados}
@@ -423,14 +445,38 @@ flexível de documentos}
 
 \section{Abordagem proposta}
 
-\subsection{Refinamento com PFCM}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+\begin{frame}{Coleções textuais}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |l|c c c c c|}
+      \hline
+      {\bf Coleção} & {\bf docs} & {\bf termos} & {\bf classes} & {\bf \% zeros} & {\bf n-gramas} \\
+      \hline
+      Opinosis & 51 & 842 & 3 & 95,73\% & 1-grama \\
+      \hline
+      20newsgroups & 2000 & 11028 & 4 & 99,11\% & 1-grama \\
+      \hline
+      Hitech & 600 & 6925 & 6 & 97,93\% & 1-grama \\
+      \hline
+      NSF & 1600 & 2806 & 16 & 99,76\% & 1-grama \\
+      \hline
+      WAP & 1560 & 8070 & 20 & 98,51\% & 1-grama \\
+      \hline
+      Reuters-21578 & 1052 & 3925 & 43 & 98,55\% & 1-grama \\
+      \hline
+    \end{tabular}
+    \caption{Características das coleções textuais utilizadas nesta pesquisa}
+    \label{table:datasets}
+  \end{table}
 \end{frame}
+
+\subsection{Refinamento com PFCM}
+
 \subsection{Método PDCL}
 \begin{frame}{What is haplotyping and why is it important?}
   You hopefully know this after the previous three talks\dots
 \end{frame}
+
 \subsection{Método Mixed-PFDCL}
 \begin{frame}{What is haplotyping and why is it important?}
   You hopefully know this after the previous three talks\dots
@@ -467,24 +513,13 @@ flexível de documentos}
 %    \end{enumerate}
 %  \end{frame}
 
-  \begin{frame}{Introdução}
-%  \frametitle{Introdu\c{c}\~{a}o}
-%  \begin{itemize}
-%      \justifying
-%      \item Provocações da antropologia pós-moderna: contra o papel pretensamente colonial da disciplina e da predominância da autoridade centrada na ``voz'' do pesquisador : pertinências e exageros. \footnote{\justifying CLIFFORD, James; MARCUS, George E. \textit{Writing Culture}: The Poetics and Politics of Ethnography. 3.ed.  2010.}
-%      \item ``Caminho do meio'' entre esse discurso e nosso propósito aqui hoje: Bakhtin. 
-%      \item Contribuição dos conceitos bakhtinianos de polifonia e dialogismo: irredutibilidade do discurso a um único ``emissor''.\footnote{\justifying BAKHTIN, Mikhail. \textit{Problems of Dostoevsky’s Poetics}. Tradução Caryl Emerson. Minneápolis: University of Minnesota, 1984.}
-%      \item Uma perícia acurada permite buscar reversões do encapsulamento, conceito muito caro o certos ramos da ciência da computação.
-%  \end{itemize}  
-\end{frame}
 
 %\begin{frame}
 %      \justifying Indícios de validade histórica dos diálogos pretensamente transcritos pelos europeus:
 %  \frametitle{Introdu\c{c}\~{a}o}
 %  \begin{enumerate}
 %    	\justifying
-%      \item Palavras transliteradas de línguas africanas consideradas procedentes pelos seus falantes e estudiosos.
-%      \item Descrições etnográficas posteriores com informações muito semelhantes.
+%      \item Palavras transliteradas de línguas africanas consideradas procedentes pelos seus falantes e estudiosos.  %      \item Descrições etnográficas posteriores com informações muito semelhantes.
 %  \end{enumerate} 
 %  Versavam sobre muitos assuntos, porém, em geral, os interlocutores da África eram preferencialmente europeizados. 
 %\end{frame}
@@ -531,6 +566,8 @@ flexível de documentos}
 %  \end{frame}
 
 \bibliographystyle{abntex2-alf}
-\bibliography{biblio}
+\begin{frame}[allowframebreaks]{Referências}
+  \bibliography{biblio}
+\end{frame}
 
 \end{document}
