@@ -472,6 +472,109 @@ flexível de documentos}
 
 \subsection{Refinamento com PFCM}
 
+\begin{frame}{Refinamento com PFCM}
+  \begin{figure}[!htp] 
+    \centering
+    \includegraphics[width=1.0\columnwidth]{assets/process_pfcm.pdf} 
+    \caption{Estratégia de organização flexível de documentos adotada ao se misturar abordagens fuzzy
+    e possibilísticas no agrupamento} 
+    \label{fig:flexibleorganization} 
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Refinamento com PFCM}
+\begin{table}[!htp]
+  \centering
+  \begin{tabular}{ |l|c|c|c|c|}
+    \hline
+    {\bf Coleção} & {\bf \# classes} & {\bf FCM} & {\bf PCM} & {\bf PFCM} \\
+    \hline
+    Opinosis & 3 & 3 & 3 & 3 \\
+    \hline
+    20Newsgroup & 4 & 2 & 2 & 2 \\
+    \hline
+    Hitech & 6 & 6 & 5 & 5 \\
+    \hline
+    NSF & 16 & 11 & 2 & 16 \\
+    \hline
+    WAP & 20 & 14 & 5 & 16 \\
+    \hline
+    Reuters-21578 & 43 & 22 & 11 & 36 \\
+    \hline
+  \end{tabular}
+  \caption{Quantidade ótima de grupos determinada através do método da silhueta fuzzy para cada
+  algoritmo de agrupamento}
+  \label{table:pfcmclusters}
+\end{table}
+\end{frame}
+
+\begin{frame}{Refinamento com PFCM}
+
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |l|c c c c c|}
+      \hline
+      {\bf Coleção} & {\bf docs} & {\bf termos} & {\bf FCM} & {\bf
+    PCM} & {\bf PFCM} \\
+      \hline
+      Opinosis & 51 & 842 &  & $\checkmark$ &  \\
+      \hline
+      20newsgroups & 2000 & \alert{11028} &  & & $\checkmark$\\
+      \hline
+      Hitech & 600 & 6925 & $\checkmark$ & & \\
+      \hline
+      NSF & 1600 & 2806 & $\checkmark$ & & \\
+      \hline
+      WAP & 1560 & \alert{8070} &  & & $\checkmark$ \\
+      \hline
+      Reuters-21578 & 1052 & 3925 & $\checkmark$ & & \\
+      \hline
+    \end{tabular}
+    \caption{Sumário dos resultados da classificação dos descritores}
+    \label{table:pfcmsummary}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}{Refinamento com PFCM}
+
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |l|p{2.5cm} | p{2.5cm} | p{2.5cm}|}
+      \hline
+      {\bf Método} & $crisp_1$ & $crisp_2$ & $crisp_3$ \\
+      \hline
+      {\bf FCM} & drive, display, control, \alert{car}, work & 
+      import, {\color{blue}model}, problem, unit, design & breakfast,
+      {\color{green!50!black}concierge}, coffee, food, inn \\
+      \hline
+      {\bf PCM} & read, problem, \alert{car}, work, found & 
+      turn, size, quality, review, feature & extreme, drive, point, reason, run\\
+      \hline
+      {\bf PFCM $\mu$} & drive, control, version, \alert{car}, work  & read, complete,
+      {\color{blue}device},
+      display, size & breakfast, pleasant, {\color{green!50!black}concierge}, coffee, clean \\
+      \hline
+      {\bf PFCM $\lambda$} & club, immaculate, towel, pillow,
+      fridge & housekeep, tourist, tea, smoke, london & bottle, adult, food, reserve, dinner\\
+      \hline
+    \end{tabular}
+    \caption{Descritores extraídos com os métodos de agrupamento FCM, PCM e PFCM da coleção Opinosis
+    .}
+    \label{table:pfcmdescriptors}
+  \end{table}
+
+\end{frame}
+
+\begin{frame}{Refinamento com PFCM - Discussão}
+  \begin{itemize}
+    \item Capacidade de adaptação do método SoftO-FDCL.
+    \item Descritores fuzzy mais significativos.
+    \item \textbf{Descritores possibilísticos pouco significativos}.
+    \item Dimensionalidade aparenta influenciar os resultados.
+  \end{itemize}
+\end{frame}
+
 \subsection{Método PDCL}
 \begin{frame}{What is haplotyping and why is it important?}
   You hopefully know this after the previous three talks\dots
