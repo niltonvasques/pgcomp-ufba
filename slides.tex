@@ -232,13 +232,184 @@ flexível de documentos}
 \section{Fundamentação Teórica}
 
 \subsection{Pré-processamento}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+
+\begin{frame}{Pré-processamento}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Remoção de espaços. 
+      \item Expansão de abreviações. 
+      \item Remoção de {\it stopwords\/} (pronomes, artigos e etc.). 
+      \item Lematização (Casa $\rightarrow$ Cas). 
+      \item Estruturação dos documentos (TF-IDF). 
+    \end{itemize} 
+
+    \column{0.5\textwidth}
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$termo_1$} & {\bf $termo_2$} & {\bf $termo_3$} \\
+        \hline
+        $doc_1$ & 1 & 3 & 4 \\
+        \hline
+        $doc_2$ & 9 & 2 & 0 \\
+        \hline
+      \end{tabular}
+      \caption{Exemplo matriz docs x termos}
+    \end{table}
+    \centering
+    $\Downarrow$
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$termo_1$} & {\bf $termo_2$} & {\bf $termo_3$} \\
+        \hline
+        $doc_1$ & 0.1 & 0.6 & 1.0 \\
+        \hline
+        $doc_2$ & 0.9 & 0.4 & 0.0 \\
+        \hline
+      \end{tabular}
+      \caption{Exemplo matriz tf-idf}
+    \end{table}
+  \end{columns}
 \end{frame}
+
 \subsection{Agrupamento (FCM,PCM,PFCM)}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+
+\begin{frame}{Agrupamento}
+  \begin{itemize}
+    \item<1 -> Organizar objetos similares em um mesmo grupo. 
+    \item<2 -> Grupos crisp x fuzzy
+    \item<3 -> Coeficiente de similaridade de cosseno.
+    \item<4 -> Validação do agrupamento com o método silhueta fuzzy.
+  \end{itemize} 
+  \visible<2 ->{
+    \begin{figure}[!htp]
+      \centering 
+      \begin{minipage}{0.45\textwidth} 
+        \centering
+        \includegraphics[width=0.6\columnwidth]{assets/clusters_crisp.pdf} 
+        \caption{Grupos crisp} 
+      \end{minipage}\hfill 
+      \begin{minipage}{0.45\textwidth} \centering
+        \includegraphics[width=0.6\columnwidth]{assets/clusters_fuzzy.pdf} 
+        \caption{Grupos fuzzy}
+        \label{fig:cluster_fuzzy} 
+      \end{minipage} 
+    \end{figure}
+  }
 \end{frame}
+
+\begin{frame}{Agrupamento (FCM) \cite{Bezdek1984}}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Graus de pertinência. 
+      \item Problema com ruídos. 
+      \item \alert{Restrição probabilística}.
+    \end{itemize} 
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & {\bf \alert{total}} \\
+        \hline
+        $doc_1$ & 0,5 & 0,5 & 1,0 \\
+        \hline
+        $doc_2$ & 0,5 & 0,5 & 1,0 \\
+        \hline
+      \end{tabular}
+      \caption{Pertinências FCM}
+    \end{table}
+
+    \column{0.5\textwidth}
+    \begin{figure}[!htp] \centering
+      \includegraphics[width=1.0\columnwidth]{assets/fcm_problem.pdf} 
+      \caption{Problema dos ruídos} 
+      \label{fig:fcm_problem} 
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Agrupamento (PCM) \cite{Krishnapuram1993}}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Graus de tipicidade. 
+      \item Problema dos grupos coincidentes. 
+      \item \alert{Remoção da restrição probabilística}.
+    \end{itemize} 
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & {\bf \alert{total}} \\
+        \hline
+        $doc_1$ & 0,7 & 0,7 & 1,4 \\
+        \hline
+        $doc_2$ & 0,2 & 0,2 & 0,4 \\
+        \hline
+      \end{tabular}
+      \caption{Tipicidades PCM}
+    \end{table}
+
+    \column{0.5\textwidth}
+    \begin{figure}[!htp] \centering
+      \includegraphics[width=1.0\columnwidth]{assets/fcm_problem.pdf} 
+      \caption{Problema dos ruídos} 
+      \label{fig:fcm_problem} 
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Agrupamento (PFCM) \cite{Pal2005}}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Pertinências e tipicidades. 
+      \item Robustez. 
+      \item Parâmetros de ponderação $a$ e $b$.
+    \end{itemize} 
+
+    \begin{figure}[!htp] 
+      \centering 
+      \includegraphics[width=1.0\columnwidth]{assets/samples_pfcm.png}
+      \caption{Agrupamento de pontos.} 
+      \label{fig:samples_pfcm} 
+    \end{figure}
+
+    \column{0.5\textwidth}
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & {\bf total} \\
+        \hline
+        $doc_1$ & 0,50 & 0,5 & 1,0 \\
+        \hline
+        $doc_2$ & 0,5 & 0,5 & 1,0 \\
+        \hline
+      \end{tabular}
+      \caption{Pertinências PFCM}
+    \end{table}
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & {\bf total} \\
+        \hline
+        $doc_1$ & 0,7 & 0,7 & 1,4 \\
+        \hline
+        $doc_2$ & 0,2 & 0,2 & 0,4 \\
+        \hline
+      \end{tabular}
+      \caption{Tipicidades PFCM}
+    \end{table}
+  \end{columns}
+\end{frame}
+
 \subsection{Extração de descritores}
 \begin{frame}{What is haplotyping and why is it important?}
   You hopefully know this after the previous three talks\dots
