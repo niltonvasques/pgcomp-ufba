@@ -17,6 +17,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[figurename=Imagem]{caption}
 \usepackage[alf,abnt-etal-cite=2]{abntex2cite}
+\usepackage{multirow}
 %\usepackage{remreset}
 %\makeatletter
 %\@removefromreset{subsection}{section}
@@ -128,14 +129,14 @@ flexível de documentos}
   \end{examples}
 \end{frame}
 
-\begin{frame}{Introdução}
-  As seguintes áreas vem explorando e propondo técnicas para otimizar esse processo: 
-  \begin{itemize}
-    \item Mineração de Dados (MD) 
-    \item Aprendizado de Máquina  
-    \item Recuperação da Informação (RI)
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Introdução}
+%  As seguintes áreas vem explorando e propondo técnicas para otimizar esse processo: 
+%  \begin{itemize}
+%    \item Mineração de Dados (MD) 
+%    \item Aprendizado de Máquina  
+%    \item Recuperação da Informação (RI)
+%  \end{itemize}
+%\end{frame}
 
 \begin{frame}{Introdução}
   \begin{itemize}
@@ -439,8 +440,14 @@ flexível de documentos}
 
 \section{Trabalhos relacionados}
 
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+\begin{frame}{Trabalhos relacionados}
+  \begin{itemize}
+    \item Demonstram a adequação da interpretação proposta.
+    \item O método SoftO-FDCL pode gerar pontuações similares a partir das tipicidades.
+    \item Os métodos propostos resolvem o problema de pontuações similares.
+    \item Os métodos PDCL e Mixed-PFDCL superaram o método SoftO-FDCL.
+    \item O método Mixed-PFDCL se mostrou adequado para a organização híbrida de documentos.
+  \end{itemize}
 \end{frame}
 
 \section{Abordagem proposta}
@@ -577,26 +584,303 @@ flexível de documentos}
 \end{frame}
 
 \subsection{Método PDCL}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+
+\begin{frame}{Método SoftO-FDCL \cite{Nogueira2013}}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |p{2cm}|p{3cm}|p{3cm}|}
+      \cline{2-3}
+      \multicolumn{1}{p{2cm}|}{} & $\mu(d_i,g_j) \geq {\color{red}\delta}, \forall d_i$ &
+      $\mu(d_i,g_j) < {\color{red}\delta}, \forall d_i$ \\
+      \hline
+      $t_k \in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $ganhos$} &
+      \parbox[c]{2cm}{\centering \it ruídos\/} \\
+      \hline
+      $t_k \not\in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $perdas$} &
+      \parbox[c]{2cm}{\centering $rejeitos$} \\
+      \hline
+    \end{tabular}
+    \caption{Matriz de contingência do método SoftO-FDCL}
+    \label{table:softmatrix}
+  \end{table}
+
+  \begin{equation}
+    precis\tilde{a}o(t_k,g_j) = \frac{ganhos}{ganhos + \text{\it ruídos}}
+    \label{eq:precision}
+  \end{equation}
+  \begin{equation}
+    \text{\it recuperação\/}(t_k,g_j) = \frac{ganhos}{ganhos + perdas}
+    \label{eq:recall}
+  \end{equation}
+  \begin{equation}
+    f1(t_k,g_j) = \frac{2 * \text{\it precisão}(t_k,g_j) * \text{\it recuperação}(t_k,g_j)}
+    {\text{\it precisão}(t_k,g_j) + \text{\it recuperação}(t_k,g_j)}
+    \label{eq:fmeasure}
+  \end{equation}
+
+\end{frame}
+
+\begin{frame}{Método SoftO-FDCL \cite{Nogueira2013}}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |c|c|c|}
+      \hline
+      & $grupo_1$ & $grupo_2$ \\
+      \hline
+      $termo_1$ & 0.85 & 0.75 \\
+      \hline
+      $termo_2$ & 0.35 & 0.95 \\
+      \hline
+      $termo_3$ & 0.25 & 0.55 \\
+      \hline
+      $termo_4$ & 0.80 & 0.65 \\
+      \hline
+      $termo_5$ & 0.50 & 0.50 \\
+      \hline
+      $termo_6$ & 0.30 & 0.24 \\
+      \hline
+      $termo_7$ & 0.10 & 0.83 \\
+      \hline
+    \end{tabular}
+    \caption{Pontuação dos termos obtidas com a medida f1}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Método SoftO-FDCL \cite{Nogueira2013}}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |c|c|c|}
+      \hline
+      & $grupo_1$ & $grupo_2$ \\
+      \hline
+      $termo_1$ & {\color{red}0.85} & 0.75 \\
+      \hline
+      $termo_2$ & 0.35 & {\color{blue}0.95} \\
+      \hline
+      $termo_3$ & 0.25 & {\color{blue}0.55} \\
+      \hline
+      $termo_4$ & {\color{red}0.80} & 0.65 \\
+      \hline
+      $termo_5$ & \alert{0.50} & 0.50 \\
+      \hline
+      $termo_6$ & 0.30 & 0.24 \\
+      \hline
+      $termo_7$ & 0.10 & {\color{blue}0.83} \\
+      \hline
+    \end{tabular}
+    \caption{Descritores de maior pontuação em cada grupo}
+  \end{table}
+\end{frame}
+
+\begin{frame}{O limiar é adequado?}
+  \begin{equation}
+    \delta = \frac{1}{total\ de\ grupos} = \frac{1}{2} = 0,5
+  \end{equation}
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & {\alert{total}} \\
+        \hline
+        $doc_1$ & 0,4 & 0,6 & 1,0 \\
+        \hline
+        $doc_2$ & 0,8 & 0,2 & 1,0 \\
+        \hline
+      \end{tabular}
+      \caption{Pertinências PFCM}
+    \end{table}
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |l|c|c|c|}
+        \hline
+        & {\bf$grupo_1$} & {\bf $grupo_2$} & \alert{total} \\
+        \hline
+        $doc_1$ & 0,6 & 0,9 & 1,5 \\
+        \hline
+        $doc_2$ & 0,4 & 0,1 & 0,5 \\
+        \hline
+      \end{tabular}
+      \caption{Tipicidades PFCM}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Convertendo tipicidades em pertinências}
+  \begin{equation}
+    \lambda'(d_i,g_j) = \frac{\lambda(d_i,g_j)}{\sum_{k=1}^c \lambda(d_i,g_k)}
+    \label{eq:tip2pert}
+  \end{equation}
+
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |l|c|c|c|}
+      \hline
+      & {\bf$grupo_1$} & {\bf $grupo_2$} & \alert{total} \\
+      \hline
+      $doc_1$ & $\frac{0,6}{1,5} = 0,4$ & $\frac{0,9}{1,5} = 0,6$ & 1,0 \\
+      \hline
+      $doc_2$ & $\frac{0,4}{0,5} = 0,8$ & $\frac{0,1}{0,5} = 0,2$ & 1,0 \\
+      \hline
+    \end{tabular}
+    \caption{Tipicidades $\rightarrow$ Pertinências}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Método PDCL}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |p{2cm}|p{3cm}|p{3cm}|}
+      \cline{2-3}
+      \multicolumn{1}{p{2cm}|}{} & ${\color{blue}\lambda'(d_i,g_j)} \geq \delta, \forall d_i$ &
+      ${\color{blue}\lambda'(d_i,g_j)} < \delta, \forall d_i$ \\
+      \hline
+      $t_k \in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $ganhos$} &
+      \parbox[c]{2cm}{\centering \it ruídos\/} \\
+      \hline
+      $t_k \not\in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $perdas$} &
+      \parbox[c]{2cm}{\centering $rejeitos$} \\
+      \hline
+    \end{tabular}
+    \caption{Matriz de contingência do método PDCL}
+    \label{table:softmatrix}
+  \end{table}
+  \begin{equation}
+    ganhos(t_k,g_j) = 
+    \sum_{ d_i \in D' } {\color{red}\lambda(d_i,g_j)}
+  \end{equation}
+
+  \begin{equation}
+    D' = \{ d_i | \ SE\ {\color{blue}\lambda'(d_i,g_j)} \geq \delta\ E\ t_k \in d_i\ PARA\ \forall
+    d_i \}
+  \end{equation}
 \end{frame}
 
 \subsection{Método Mixed-PFDCL}
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+\begin{frame}{Método Mixed-PFDCL}
+  \begin{figure}[!htp] 
+    \centering
+    \includegraphics[width=0.8\columnwidth]{assets/process_pfdcl.pdf} 
+  \end{figure}
+
+  \visible<2 ->{
+    \begin{equation}
+      \alert{\mu'(d_i,g_j)} = \frac{a \mu(d_i,g_j) + b \lambda'(d_i,g_j)}{a+b}
+      \label{eq:pfcmmix}
+    \end{equation}
+  }
+
+  \visible<3 ->{
+    \begin{table}[!htp]
+      \centering
+      \begin{tabular}{ |p{2cm}|p{3cm}|p{3cm}|}
+        \cline{2-3}
+        \multicolumn{1}{p{2cm}|}{} & $\alert{\mu'(d_i,g_j)} \geq \delta, \forall d_i$ &
+        $\alert{\mu'(d_i,g_j)} < \delta, \forall d_i$ \\
+        \hline
+        $t_k \in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $ganhos$} &
+        \parbox[c]{2cm}{\centering \it ruídos\/} \\
+        \hline
+        $t_k \not\in d_i, \forall d_i$ & \parbox[c]{2cm}{\centering $perdas$} &
+        \parbox[c]{2cm}{\centering $rejeitos$} \\
+        \hline
+      \end{tabular}
+      \caption{Matriz de contingência do método Mixed-PFDCL}
+    \end{table}
+  }
+\end{frame}
+
+\subsection{Resultados}
+
+\begin{frame}{Resultados}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{|l|c c|c c|}
+      \hline
+      & \multicolumn{2}{c|}{PCM} & \multicolumn{2}{c|}{PFCM} \\
+      \hline
+      {\bf Coleção} & {\bf SoftO-FDCL} & {\bf PDCL} & {\bf SoftO-FDCL} & {\bf Mixed} \\
+      \hline
+      Opinosis & & $\checkmark$ & & $\checkmark$ \\
+      \hline
+      20newsgroups & $\checkmark$ & $\checkmark$ & & $\checkmark$\\
+      \hline
+      Hitech & & $\checkmark$ & & $\checkmark$ \\
+      \hline
+      NSF &  $\checkmark$ & $\checkmark$ & & $\checkmark$\\
+      \hline
+      WAP & & $\checkmark$ & & $\checkmark$\\
+      \hline
+      Reuters-21578 & & $\checkmark$ & & $\checkmark$\\
+      \hline
+    \end{tabular}
+    \caption{Sumário dos resultados da classificação dos descritores extraídos com os métodos
+    SoftO-FDCL, PDCL e Mixed-PFDCL}
+    \label{table:pdclsummary}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Resultados}
+  \begin{table}[!htp]
+    \centering
+    \begin{tabular}{ |l| l l | l l|}
+      \hline
+      & \multicolumn{2}{c|}{$grupo_1$} & \multicolumn{2}{c|}{$grupo_2$} \\
+      \hline
+      {\bf Método} & {\bf termo} & {\bf pontuação} & {\bf termo} & {\bf pontuação} \\
+      \hline
+      \multirow{5}{*}{{\bf SoftO-FDCL}} & caf       & \alert{0,923077}  & caf       &
+      \alert{0,923077} \\
+                                        & floor	    & \alert{0.888889}  & floor	    &
+      \alert{0.888889} \\
+                                        & food	    & \alert{0.880000}  & food	    &
+      \alert{0.880000} \\
+                                        & coffe	    & \alert{0.857143}  & coffe	    &
+      \alert{0.857143} \\
+                                        & concierge & \alert{0.846154}  & concierge &
+      \alert{0.846154} \\
+      \hline
+      \multirow{5}{*}{{\bf PDCL}} & bathro      &  0.894716  & make    & 0.800980 \\       
+                                  & food        &  0.888785  & time    & 0.789846 \\       
+                                  & concierge    &  0.860127  & nice    & 0.779338 \\       
+                                  & supermarket &  0.856632  & feature & 0.778138 \\       
+                                  & chain       &  0.856632  & easy    & 0.768564 \\       
+      \hline
+    \end{tabular}
+    \caption{5 termos de maior pontuação obtidos extraídos com os métodos Soft-FDCL e PDCL da coleção Opinosis com o algoritmo PCM}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Resultados - Discussão}
+  \begin{itemize}
+    \item Demonstram a adequação da interpretação proposta.
+    \item O método SoftO-FDCL pode gerar pontuações similares a partir das tipicidades.
+    \item Os métodos propostos resolvem o problema de pontuações similares.
+    \item Os métodos PDCL e Mixed-PFDCL superaram o método SoftO-FDCL.
+    \item O método Mixed-PFDCL se mostrou adequado para a organização híbrida de documentos.
+  \end{itemize}
 \end{frame}
 
 \section{Conclusão}
 
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
+\begin{frame}{Conclusão}
+  \begin{itemize}
+    \item<1 -> A organização flexível de documentos envolve muitos campos de estudo.
+    \item<2 -> Detalhamento dos métodos de agrupamento FCM, PCM, PFCM e HFCM.
+    \item<3 -> Possibilidades de aprimoramento encontradas na literatura recente.
+    \item<4 -> É possível aprimorar todas as etapas do processo.
+    \item<5 -> Impactos do PFCM na organização flexível de documentos.
+    \item<6 -> Adaptação do método SoftO-FDCL.
+    \item<7 -> Propriedades do limiar $\delta$.
+    \item<8 -> Método PDCL proposto produziu bons resultados superando o método SoftO-FDCL.
+    \item<9 -> Método Mixed-PFDCL proposto produziu bons descritores superando o método SoftO-FDCL.
+    \item<10 -> Publicação de artigo científico na conferência FUZZ-IEEE.
+  \end{itemize}
 \end{frame}
 
-\section{Trabalhos futuros}
-
-\begin{frame}{What is haplotyping and why is it important?}
-  You hopefully know this after the previous three talks\dots
-\end{frame}
+%\section{Trabalhos futuros}
+%
+%\begin{frame}{What is haplotyping and why is it important?}
+%  You hopefully know this after the previous three talks\dots
+%\end{frame}
 
 %\begin{frame}
 %Quais seriam as possíveis histórias do tráfico atlântico?
