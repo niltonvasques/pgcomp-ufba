@@ -434,6 +434,18 @@ flexível de documentos}
   \end{columns}
 \end{frame}
 
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain,label=fusion]
+        \begin{tikzpicture}[remember picture,overlay]
+          \node[at=(current page.center)](img) {
+            \includegraphics[width=\paperwidth]{assets/slide/fcm-and-pcm.jpg}
+          };
+          \node[above right,text width=14cm,align=left] at (img.south west){{\color{white}Retirado
+          de \url{fanpop.com}}};
+        \end{tikzpicture}
+     \end{frame}
+}
 \begin{frame}{Agrupamento (PFCM) \cite{Pal2005}}
   \begin{columns}
     \column{0.5\textwidth}
