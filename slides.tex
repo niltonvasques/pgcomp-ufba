@@ -100,7 +100,7 @@ flexível de documentos}
       de \alert{dados armazenados}.
     \item<2 -> A rede social Facebook produz mais de \alert{25 $terabytes$/dia} \cite{Havens2012}.
     \item<3 -> Governos e corporações também produzem milhares de \alert{documentos} todos os dias,
-      tais como relatórios, formulários pesquisas de opiniões e etc.
+      tais como relatórios, formulários, pesquisas de opiniões e etc.
     \item<4 -> \citeonline{Muggleton2006} ressalta que este cenário está além dos limites humanos
       para o uso e compreensão.
   \end{itemize}
@@ -114,15 +114,15 @@ flexível de documentos}
       \alert{não estruturada}.
   \end{itemize}
   \begin{examples}<3 ->
-    documentos de textos, planilhas, áudios, imagens, vídeos e documentos HTML.
+    documentos de textos, planilhas, áudios, imagens, vídeos, documentos HTML e etc.
   \end{examples}
 \end{frame}
 
 \begin{frame}{Introdução}
   \begin{itemize}
     \item<1 -> Dados estruturados já possuem mecanismos eficientes de armazenamento e recuperação.
-    \item<2 -> \alert{Documentos textuais} são recuperados através de Sistemas de Recuperação da
-      Informação (SRI), por conta da \alert{ausência de estruturas}. 
+    \item<2 -> \alert{Documentos textuais} por serem \alert{não estruturados} são recuperados
+      através de Sistemas de Recuperação da Informação (SRI). 
   \end{itemize}
   \begin{examples}<2 ->
     Duckduckgo, Jus Brasil, IEEExplore, ACM, Google e etc 
@@ -148,16 +148,16 @@ flexível de documentos}
 \end{frame}
 
 \begin{frame}{Introdução}
-  Vários desafios estão presentes na processo de extração de padrões de documentos textuais, entre
+  Vários desafios estão presentes no processo de extração de padrões de documentos textuais, entre
   eles destaca-se:
   \begin{itemize}
-    \item Não estruturados.
-    \item Naturalmente \alert{imprecisos} e \alert{incertos}. 
-    \item Abordam um ou mais temas. 
-    \item \alert{Alta dimensionalidade}.
-    \item Dados \alert{esparsos}.
+    \item<1 -> Não estruturados.
+    \item<2 -> Naturalmente \alert{imprecisos} e \alert{incertos}. 
+    \item<3 -> Abordam um ou mais temas. 
+    \item<4 -> \alert{Alta dimensionalidade}.
+    \item<5 -> Dados \alert{esparsos}.
   \end{itemize}
-  \begin{examples}
+  \begin{examples}<5 ->
     Uma coleção de documentos pode conter 100.000 palavras, enquanto um documento pode conter apenas
     algumas centenas \cite{Aggarwal2012}.
   \end{examples}
@@ -168,21 +168,24 @@ flexível de documentos}
     A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
     \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
     fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
-    informação através de um Sistema de Recuperação de Informação (SRI)
+    informação através de um SRI.
   \end{block}
 \end{frame}
 
 \begin{frame}{Introdução}
   O agrupamento é muito importante neste processo e possui uma série de desafios:
   \begin{itemize}
-    \item Agrupar de acordo com a similaridade. 
-    \item \textbf{Grupos com significado relevante}.
-    \item Escalável para grandes coleções ({\it Big Data\/}).
-    \item Baixo custo computacional.
-    \item Estimar os parâmetros dos algoritmos.
-    \item \textbf{Considerar a imprecisão e a incerteza}.
-    \item \textbf{Reduzir a influência de \alert{documentos ruidosos}}. 
+    \item<1 -> Agrupar de acordo com a similaridade. 
+    \item<2 -> \textbf{Grupos com significado relevante}.
+    \item<3 -> Escalável para grandes coleções ({\it Big Data\/}).
+    \item<4 -> Baixo custo computacional.
+    \item<5 -> Estimar os parâmetros dos algoritmos.
+    \item<6 -> \textbf{Considerar a imprecisão e a incerteza}.
+    \item<7 -> \textbf{Reduzir a influência de \alert{documentos ruidosos}}. 
   \end{itemize} 
+\end{frame}
+
+\begin{frame}{Introdução}
   \begin{block}{Citação}
     {\it [...] não é esperado que um único método de agrupamento atenda
     todas as exigências para todos os conjuntos de dados [...] \cite{Steinbach2004}\/}.
@@ -192,10 +195,9 @@ flexível de documentos}
 \begin{frame}{Introdução}
   Existem diversos métodos de agrupamento na literatura, os quais destacam-se:
   \begin{itemize}
-    \item {\it Fuzzy C-Means\/} (FCM) - Graus de pertinência (Problemas com ruídos). 
-    \item {\it Possibilistic C-Means\/} (PCM) - Graus de tipicidade (Pode gerar grupos
-      coincidentes). 
-    \item {\it Possibilistic Fuzzy C-Means\/} (PFCM) - Graus de pertinência e tipicidade (Híbrido). 
+    \item {\it Fuzzy C-Means\/} (FCM) 
+    \item {\it Possibilistic C-Means\/} (PCM) 
+    \item {\it Possibilistic Fuzzy C-Means\/} (PFCM) 
   \end{itemize} 
 
 \end{frame}
@@ -209,6 +211,9 @@ flexível de documentos}
     documentos}, aumentando assim a relevância dos grupos obtidos.
   \end{block}
 
+\end{frame}
+
+\begin{frame}{Introdução}
   Para validar a hipótese definiu-se o como objetivo desta monografia:
 
   \begin{block}{Objetivo}
@@ -467,19 +472,20 @@ flexível de documentos}
     \centering
     \begin{tabular}{ |l|c c c c c|}
       \hline
-      {\bf Coleção} & {\bf docs} & {\bf termos} & {\bf classes} & {\bf \% zeros} & {\bf n-gramas} \\
+      {\bf Coleção} & {\bf docs} & {\bf termos} & {\bf classes} & {\bf \alert{\% zeros}} & {\bf
+    n-gramas} \\
       \hline
-      Opinosis & 51 & 842 & 3 & 95,73\% & 1-grama \\
+      Opinosis & 51 & 842 & 3         & \alert{95,73\%} & 1-grama \\
       \hline
-      20newsgroups & 2000 & 11028 & 4 & 99,11\% & 1-grama \\
+      20newsgroups & 2000 & 11028 & 4 & \alert{99,11\%} & 1-grama \\
       \hline
-      Hitech & 600 & 6925 & 6 & 97,93\% & 1-grama \\
+      Hitech & 600 & 6925 & 6         & \alert{97,93\%} & 1-grama \\
       \hline
-      NSF & 1600 & 2806 & 16 & 99,76\% & 1-grama \\
+      NSF & 1600 & 2806 & 16          & \alert{99,76\%} & 1-grama \\
       \hline
-      WAP & 1560 & 8070 & 20 & 98,51\% & 1-grama \\
+      WAP & 1560 & 8070 & 20          & \alert{98,51\%} & 1-grama \\
       \hline
-      Reuters-21578 & 1052 & 3925 & 43 & 98,55\% & 1-grama \\
+      Reuters-21578 & 1052 & 3925 & 43 & \alert{98,55\%} & 1-grama \\
       \hline
     \end{tabular}
     \caption{Características das coleções textuais utilizadas nesta pesquisa}
@@ -715,10 +721,12 @@ flexível de documentos}
 \end{frame}
 
 \begin{frame}{Convertendo tipicidades em pertinências}
-  \begin{equation}
-    \lambda'(d_i,g_j) = \frac{\lambda(d_i,g_j)}{\sum_{k=1}^c \lambda(d_i,g_k)}
-    \label{eq:tip2pert}
-  \end{equation}
+  \begin{alertblock}{Tipicidades $\rightarrow$ Pertinências}
+    \begin{equation}
+      \lambda'(d_i,g_j) = \frac{\lambda(d_i,g_j)}{\sum_{k=1}^c \lambda(d_i,g_k)}
+      \label{eq:tip2pert}
+    \end{equation}
+  \end{alertblock}
 
   \begin{table}[!htp]
     \centering
@@ -753,15 +761,17 @@ flexível de documentos}
     \caption{Matriz de contingência do método PDCL}
     \label{table:softmatrix}
   \end{table}
-  \begin{equation}
-    ganhos(t_k,g_j) = 
-    \sum_{ d_i \in D' } {\color{red}\lambda(d_i,g_j)}
-  \end{equation}
+  \begin{alertblock}{Ponderando os ganhos, ruídos, perdas e rejeitos}
+    \begin{equation}
+      ganhos(t_k,g_j) = 
+      \sum_{ d_i \in D' } {\color{red}\lambda(d_i,g_j)}
+    \end{equation}
+    \begin{equation}
+      D' = \{ d_i | \ SE\ {\color{blue}\lambda'(d_i,g_j)} \geq \delta\ E\ t_k \in d_i\ PARA\ \forall
+      d_i \}
+    \end{equation}
+  \end{alertblock}
 
-  \begin{equation}
-    D' = \{ d_i | \ SE\ {\color{blue}\lambda'(d_i,g_j)} \geq \delta\ E\ t_k \in d_i\ PARA\ \forall
-    d_i \}
-  \end{equation}
 \end{frame}
 
 \subsection{Método Mixed-PFDCL}
@@ -771,12 +781,12 @@ flexível de documentos}
     \includegraphics[width=0.8\columnwidth]{assets/process_pfdcl.pdf} 
   \end{figure}
 
-  \visible<2 ->{
+  \begin{alertblock}{Pertinência híbrida}<2 ->
     \begin{equation}
       \alert{\mu'(d_i,g_j)} = \frac{a \mu(d_i,g_j) + b \lambda'(d_i,g_j)}{a+b}
       \label{eq:pfcmmix}
     \end{equation}
-  }
+  \end{alertblock}
 
   \visible<3 ->{
     \begin{table}[!htp]
@@ -875,14 +885,17 @@ flexível de documentos}
   \begin{itemize}
     \item<1 -> A organização flexível de documentos envolve muitos campos de estudo.
     \item<2 -> Detalhamento dos métodos de agrupamento FCM, PCM, PFCM e HFCM.
-    \item<3 -> Possibilidades de aprimoramento encontradas na literatura recente.
-    \item<4 -> É possível aprimorar todas as etapas do processo.
-    \item<5 -> Impactos do PFCM na organização flexível de documentos.
-    \item<6 -> Adaptação do método SoftO-FDCL.
-    \item<7 -> Propriedades do limiar $\delta$.
-    \item<8 -> Método PDCL proposto produziu bons resultados superando o método SoftO-FDCL.
-    \item<9 -> Método Mixed-PFDCL proposto produziu bons descritores superando o método SoftO-FDCL.
-    \item<10 -> Publicação de artigo científico na conferência FUZZ-IEEE.
+    \item<3 -> É possível aprimorar todas as etapas do processo.
+    \item<4 -> Impactos do PFCM na organização flexível de documentos.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusão}
+  \begin{itemize}
+    \item<1 -> \textbf{Propriedades do limiar $\delta$.}
+    \item<2 -> \textbf{A estratégia híbrida se mostrou adequada, produzindo bons descritores.}
+    \item<3 -> \textbf{Os métodos propostos obtiveram bons resultados.}
+    \item<4 -> Publicação de artigo científico na conferência FUZZ-IEEE.
   \end{itemize}
 \end{frame}
 
