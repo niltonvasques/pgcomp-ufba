@@ -18,6 +18,9 @@
 \usepackage[figurename=Imagem]{caption}
 \usepackage[alf,abnt-etal-cite=2]{abntex2cite}
 \usepackage{multirow}
+\usepackage{tikz}
+% use our .sty file for simple movie commands
+\usepackage{pdfpc-commands}
 %\usepackage{remreset}
 %\makeatletter
 %\@removefromreset{subsection}{section}
@@ -163,14 +166,52 @@ flexível de documentos}
   \end{examples}
 \end{frame}
 
-\begin{frame}{Introdução}
-  \begin{block}{Definição}
-    A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
-    \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
-    fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
-    informação através de um SRI.
-  \end{block}
-\end{frame}
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+          \node[at=(current page.center)](img) {
+            \includegraphics[width=\paperwidth]{assets/slide/scatered.jpg}
+          };
+          \node[above right,text width=14cm,align=left] at (img.south west){{\color{white}Retirado
+          de \url{businessblogshub.com}}};
+        \end{tikzpicture}
+     \end{frame}
+}
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+          \node[at=(current page.center)](img) {
+            \includegraphics[width=\paperwidth]{assets/slide/box.jpg}
+          };
+          \node[above right,text width=14cm,align=left] at (img.south
+          west){{\color{white}Retirado de \url{fabulouslyorganizedhome.com}}};
+        \end{tikzpicture}
+     \end{frame}
+}
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+          \node[at=(current page.center)](img) {
+                \includegraphics[width=\paperwidth]{assets/slide/organized.jpg}
+            };
+            \node[above right,text width=14cm,align=left] at (img.south
+            west){{\color{white}Retirado de
+            \url{www.pinterest.com}}};
+        \end{tikzpicture}
+     \end{frame}
+}
+%\fullFrameImage{assets/slide/scatered.jpg}{\copyrightText{\url{https://fabulouslyorganizedhome.com/}}}
+%\fullFrameImage{assets/slide/box.jpg}{}
+%\fullFrameImage{assets/slide/organized.jpg}{}
+%\fullFrameImage{assets/slide/scatered.jpg}{\copyrightText{Apollo 17, NASA}}
+
+%\begin{frame}{Introdução}
+%  A organização flexível de documentos se apresenta então como o processo para estruturar e
+%  organizar documentos textuais considerando a incerteza e imprecisão.
+%\end{frame}
 
 \begin{frame}{Introdução}
   O agrupamento é muito importante neste processo e possui uma série de desafios:
@@ -202,38 +243,47 @@ flexível de documentos}
 
 \end{frame}
 
+%\begin{frame}{Introdução}
+%  Foi então formulada a seguinte hipótese: 
+%  \begin{block}{Hipótese}
+%    A utilização de uma estratégia \alert{híbrida} de agrupamento e extração de descritores, entre
+%    os graus de pertinência e tipicidade providos pelo método de agrupamento PFCM, permitem o
+%    aumento da robustez e resiliência contra \alert{ruídos} na \alert{organização flexível de
+%    documentos}, aumentando assim a relevância dos grupos obtidos.
+%  \end{block}
+%
+%\end{frame}
+%
+%\begin{frame}{Introdução}
+%  Para validar a hipótese definiu-se o como objetivo desta monografia:
+%
+%  \begin{block}{Objetivo}
+%    Conduzir uma investigação em torno dos métodos de agrupamento \textbf{FCM, PCM e PFCM}, para
+%    compreender e interpretar corretamente as peculiaridades de se extrair descritores a partir de um
+%    \textbf{agrupamento híbrido}.
+%  \end{block}
+%\end{frame}
+
 \begin{frame}{Introdução}
-  Foi então formulada a seguinte hipótese: 
-  \begin{block}{Hipótese}
-    A utilização de uma estratégia \alert{híbrida} de agrupamento e extração de descritores, entre
-    os graus de pertinência e tipicidade providos pelo método de agrupamento PFCM, permitem o
-    aumento da robustez e resiliência contra \alert{ruídos} na \alert{organização flexível de
-    documentos}, aumentando assim a relevância dos grupos obtidos.
-  \end{block}
-
-\end{frame}
-
-\begin{frame}{Introdução}
-  Para validar a hipótese definiu-se o como objetivo desta monografia:
-
-  \begin{block}{Objetivo}
-    Conduzir uma investigação em torno dos métodos de agrupamento \textbf{FCM, PCM e PFCM}, para
-    compreender e interpretar corretamente as peculiaridades de se extrair descritores a partir de um
-    \textbf{agrupamento híbrido}.
-  \end{block}
-\end{frame}
-
-\begin{frame}{Introdução}
-  A partir das investigações conduzidas descobriu-se que os \alert{graus de tipicidade}
-  \alert{afetam} a qualidade dos descritores dos grupos. 
-
-  Essa descoberta motivou a proposição dos métodos de extração de descritores:
+  A partir das investigações conduzidas foi proposto dois métodos de extração de descritores:
 
   \begin{itemize}
     \item \textbf{Possibilistic Description Comes Last} (PDCL)
     \item \textbf{Mixed - Possibilistic Fuzzy Description Comes Last} (Mixed-PFDCL) (Híbrido)
   \end{itemize} 
 \end{frame}
+
+%\begin{frame}{Introdução}
+%  A partir das investigações conduzidas descobriu-se que os \alert{graus de tipicidade}
+%  \alert{afetam} a qualidade dos descritores dos grupos. 
+%
+%  Essa descoberta motivou a proposição dos métodos de extração de descritores:
+%
+%  \begin{itemize}
+%    \item \textbf{Possibilistic Description Comes Last} (PDCL)
+%    \item \textbf{Mixed - Possibilistic Fuzzy Description Comes Last} (Mixed-PFDCL) (Híbrido)
+%  \end{itemize} 
+%\end{frame}
 
 \section{Fundamentação Teórica}
 
@@ -441,6 +491,12 @@ flexível de documentos}
     \includegraphics[width=1.0\columnwidth]{assets/process.pdf}
     \caption{Organização flexível de documentos.} 
   \end{figure}
+  \begin{block}{Definição}<2 ->
+    A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
+    \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
+    fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
+    informação através de um SRI.
+  \end{block}
 \end{frame}
 
 \section{Trabalhos relacionados}
