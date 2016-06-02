@@ -183,6 +183,18 @@ flexível de documentos}
     \begin{frame}[plain]
         \begin{tikzpicture}[remember picture,overlay]
           \node[at=(current page.center)](img) {
+            \includegraphics[width=\paperwidth]{assets/slide/processing.jpg}
+          };
+          \node[above right,text width=14cm,align=left] at (img.south west){{\color{white}Retirado
+          de \url{realvalidation.com}}};
+        \end{tikzpicture}
+     \end{frame}
+}
+{ % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+          \node[at=(current page.center)](img) {
             \includegraphics[width=\paperwidth]{assets/slide/box.jpg}
           };
           \node[above right,text width=14cm,align=left] at (img.south
