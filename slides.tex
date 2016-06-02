@@ -168,10 +168,10 @@ flexível de documentos}
 
 { % all template changes are local to this group.
     \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,label=scatered]
         \begin{tikzpicture}[remember picture,overlay]
           \node[at=(current page.center)](img) {
-            \includegraphics[width=\paperwidth]{assets/slide/scatered.jpg}
+            \includegraphics[width=\paperwidth]{assets/slide/scatered2.jpg}
           };
           \node[above right,text width=14cm,align=left] at (img.south west){{\color{white}Retirado
           de \url{businessblogshub.com}}};
@@ -180,10 +180,10 @@ flexível de documentos}
 }
 { % all template changes are local to this group.
     \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,label=preprocessing]
         \begin{tikzpicture}[remember picture,overlay]
           \node[at=(current page.center)](img) {
-            \includegraphics[width=\paperwidth]{assets/slide/processing.jpg}
+            \includegraphics[width=\paperwidth]{assets/slide/processing2.jpg}
           };
           \node[above right,text width=14cm,align=left] at (img.south west){{\color{white}Retirado
           de \url{realvalidation.com}}};
@@ -192,10 +192,10 @@ flexível de documentos}
 }
 { % all template changes are local to this group.
     \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,label=clustering]
         \begin{tikzpicture}[remember picture,overlay]
           \node[at=(current page.center)](img) {
-            \includegraphics[width=\paperwidth]{assets/slide/box.jpg}
+            \includegraphics[width=\paperwidth]{assets/slide/box2.jpg}
           };
           \node[above right,text width=14cm,align=left] at (img.south
           west){{\color{white}Retirado de \url{fabulouslyorganizedhome.com}}};
@@ -204,10 +204,10 @@ flexível de documentos}
 }
 { % all template changes are local to this group.
     \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,label=descriptors]
         \begin{tikzpicture}[remember picture,overlay]
           \node[at=(current page.center)](img) {
-                \includegraphics[width=\paperwidth]{assets/slide/organized.jpg}
+            \includegraphics[width=\paperwidth]{assets/slide/organized2.jpg}
             };
             \node[above right,text width=14cm,align=left] at (img.south
             west){{\color{white}Retirado de
@@ -301,6 +301,7 @@ flexível de documentos}
 
 \subsection{Pré-processamento}
 
+\againframe{preprocessing}
 \begin{frame}{Pré-processamento}
   \begin{columns}
     \column{0.5\textwidth}
@@ -346,6 +347,7 @@ flexível de documentos}
 
 \subsection{Agrupamento (FCM,PCM,PFCM)}
 
+\againframe{clustering}
 \begin{frame}{Agrupamento}
   \begin{itemize}
     \item<1 -> Organizar objetos similares em um mesmo grupo. 
@@ -480,6 +482,7 @@ flexível de documentos}
 
 \subsection{Extração de descritores}
 
+\againframe{descriptors}
 \begin{frame}{Extração de descritores}
   \begin{itemize}
     \item<1 -> Atribuir significados aos grupos. 
@@ -497,19 +500,19 @@ flexível de documentos}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Organização Flexível de Documentos}
-  \begin{figure}[!htp] 
-    \centering 
-    \includegraphics[width=1.0\columnwidth]{assets/process.pdf}
-    \caption{Organização flexível de documentos.} 
-  \end{figure}
-  \begin{block}{Definição}<2 ->
-    A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
-    \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
-    fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
-    informação através de um SRI.
-  \end{block}
-\end{frame}
+%\begin{frame}{Organização Flexível de Documentos}
+%  \begin{figure}[!htp] 
+%    \centering 
+%    \includegraphics[width=1.0\columnwidth]{assets/process.pdf}
+%    \caption{Organização flexível de documentos.} 
+%  \end{figure}
+%  \begin{block}{Definição}<2 ->
+%    A \alert{organização flexível de documentos} pode ser definida como o processo que compreende a
+%    \alert{estruturação dos dados}, a adição de flexibilidade proporcionada pelo \alert{agrupamento
+%    fuzzy}, a \alert{extração de descritores} dos grupos de maneira flexível e a recuperação de
+%    informação através de um SRI.
+%  \end{block}
+%\end{frame}
 
 \section{Trabalhos relacionados}
 
